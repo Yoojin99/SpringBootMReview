@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import net.coobird.thumbnailator.Thumbnailator;
+
 @RestController
 @Log4j2
 public class UploadController {
@@ -71,6 +73,13 @@ public class UploadController {
 
             try {
                 uploadFile.transferTo(savePath);
+
+                String thumbnailSaveName = uploadPath + File.separator + folderPath + File.separator +
+                        "s_" + uuid + "_" + fileName;
+
+                File thumbnailFile = new File(thumbnailSaveName);
+                Thumbnailator.createThumbnail(savePath.toFile(), thumbnailFile, 100, 100);
+
                 resultDTOList.add(new UploadResultDTO(fileName, uuid, folderPath));
             } catch (IOException e) {
                 e.printStackTrace();
