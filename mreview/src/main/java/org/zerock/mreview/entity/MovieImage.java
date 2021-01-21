@@ -10,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @ToString(exclude = "movie")
-public class MoveImage {
+public class MovieImage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +19,8 @@ public class MoveImage {
     private String uuid;
 
     private String path;
+
+    private String imgName;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Movie movie;
