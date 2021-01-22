@@ -13,7 +13,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class ReviewDTO {
 
-    private  Long reveiwnum;
+    private  Long reviewnum;
+
     private  Long mno;
 
     private Long mid;
